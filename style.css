@@ -1,331 +1,460 @@
-@mixin vp-anim($radius,$pname, $deg: 360deg) {
-  @-webkit-keyframes rot-#{$pname} {
-    from {
-      -webkit-transform: rotate(0deg)
-                 translatey(-$radius)
-                 rotate(0deg);
-    }
-    to {
-      -webkit-transform: rotate(360deg)
-                 translatey(-$radius) 
-                 rotate(-$deg);
-    }
-  }
-  @-moz-keyframes rot-#{$pname} {
-    from {
-      -moz-transform: rotate(0deg)
-                 translatey(-$radius)
-                 rotate(0deg);
-    }
-    to {
-      -moz-transform: rotate(360deg)
-                 translatey(-$radius) 
-                 rotate(-$deg);
-    }
-  }
-  @-keyframes rot-#{$pname} {
-    from {
-      transform: rotate(0deg)
-                 translatey(-$radius)
-                 rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg)
-                 translatey(-$radius) 
-                 rotate(-$deg);
-    }
-  }
+body{
+  font-family: arial;
+  background: #fff;
 }
 
-$baseUnit: 0.1;        // Speed of Orrery. At 1, 1 sec = 1 day
-$sunRad: 72px;          // Radius of the sun, added to orbit radii
-$rFactor: 2;            // Adding a radius factor so orbit radii are easier to observe
-$middleOffset: 800px;
+.name{
+  color: #aaa;
+  font-size: 12px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+}
 
-$scale: 0.75;              // Play around with changing this to change the visible motion default: 0.75
+.name div:first-of-type{
+  font-size: 14px;
+}
 
-$middle: $middleOffset*(1/$scale);
+.name a{
+  color: #aaa;
+}
 
-$planets: (
-  ('mer',8.8s*$baseUnit,(6px*$rFactor)+$sunRad,1.75px,#888),
-  ('ven',22.5s*$baseUnit,(9px*$rFactor)+$sunRad,2.75px,#f5f9be),
-  ('ear',36.5s*$baseUnit,(15px*$rFactor)+$sunRad,3.5px,#4b94f9),
-  ('mar',68.7s*$baseUnit,(23px*$rFactor)+$sunRad,3px,#dd411a),
-  ('jup',433.2s*$baseUnit,(78px*$rFactor)+$sunRad,35px,#eaad3b),
-  ('sat',1075.9s*$baseUnit,(145px*$rFactor)+$sunRad,29px,#d6cd93),
-  ('ura',3068.7s*$baseUnit,(288px*$rFactor)+$sunRad,13px,#bfeef2),
-  ('nep',6019s*$baseUnit,(450px*$rFactor)+$sunRad,12px,#363ed7),
-  ('plu',9046.5s*$baseUnit,(587px*$rFactor)+$sunRad,1.5px,#963)
- );
+.name a:hover{
+  color: #888;
+}
 
-body {
-  background-color: #012;
-  background-image: url('https://cssanimation.rocks/starwars/images/bg.jpg');
-  background-size: 33%;
-  background-repeat: repeat;
-  min-height: 2700px * $scale;
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
 }
 
 
-.system {
-  position:relative;
-  top: 0; left: 0;
-  width:100%;
-  height:100%;
-  -webkit-transform: scale($scale);
-  -moz-transform: scale($scale);
-  transform: scale($scale);
+
+.perspective{
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
 }
 
-.sun {
-  width: $sunRad*2;
-  height:$sunRad*2;
-  border-radius: $sunRad;
-  position:absolute;
-  top: $middle;
-  left:50%;
-  margin: -$sunRad;
-  //background-color: yellow;
-  background-image: url('http://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_HMIIF.jpg');
-  background-size:$sunRad*2;
-  background-repeat:no-repeat;
+.tardis-wrap{
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transform : translateZ(-300px);
+  -webkit-transform : translateZ(-300px);
 }
 
-@each $planet in $planets {
-  $name: nth($planet, 1);
-  $orb: nth($planet,2);
-  $rad: nth($planet,3);
-  $prad: nth($planet,4);
-  $col: nth($planet,5);
+.tardis{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
   
-  @include vp-anim($rad,$name);
-  
-    .#{$name} {
-      width: $prad * 2;
-      height: $prad*2;
-      border-radius:50%;
-      background-color:$col;
-      position: absolute;
-      top: $middle;
-      left: 50%;
-      margin: -$prad;
-      -webkit-animation: rot-#{$name} $orb infinite linear;
-      -moz-animation: rot-#{$name} $orb infinite linear;
-      animation: rot-#{$name} $orb infinite linear; 
-      z-index:200;
-    }
-  .#{$name}-path {
-        $orbitPath: $rad*2;
-        width: $orbitPath;
-        height: $orbitPath;
-        border-radius:50%;
-        z-index:100;
-        position:absolute;
-        top: $middle;
-        left:50%;
-        margin:-($orbitPath / 2);
-        border: solid 1px #444;
-      }
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+
+  transform: rotateX(-20deg) rotateY(-30deg);
+  -webkit-transform: rotateX(-20deg) rotateY(-30deg);
+
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-@include vp-anim(7px,lune);
+@keyframes spin{
+  from{
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
 
-.lune {
-  width:2px;
-  height:2px;
-  background-color: #fff;
-  position:absolute;
-  $lunOrb: 2.7s * $baseUnit;
-  top: 50%;
-  left:50%;
-  margin:-1.5px;
-  -webkit-animation: rot-lune $lunOrb infinite linear;
-  -moz-animation: rot-lune $lunOrb infinite linear;
-  animation: rot-lune $lunOrb infinite linear;
-}
-
-.mar {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    #fff,
-    #fff 1px,
-    transparent 1px,
-    transparent 5px
-  );
-}
-
-@include vp-anim(7px,pho);
-@include vp-anim(9px,dem);
-
-.pho, .dem {
-  width:1px;
-  height:1px;
-  background-color: #fff;
-  position:absolute;
-  top: 50%;
-  left:50%;
-}
-
-.pho {
-  $phoOrb: 1.5s * $baseUnit;  // Should be 0.33s but spins like it's having a fit.
-  margin:-1px;
-  -webkit-animation: rot-pho $phoOrb infinite linear;
-  -moz-animation: rot-pho $phoOrb infinite linear;
-  animation: rot-pho $phoOrb infinite linear;
-}
-
-.dem {
-  $demOrb: 2s * $baseUnit;  // Should be 1.25s, spins too fast
-  margin:-1px;
-  -webkit-animation: rot-dem $demOrb infinite linear;
-  -moz-animation: rot-dem $demOrb infinite linear;
-  animation: rot-dem $demOrb infinite linear;
-}
-
-$jupR: 35px;
-.jove {
-  width:2px;
-  height:2px;
-  background-color: #fff;
-  position:absolute;
-  top: $jupR;
-  left:50%;
-}
-
-
-@include vp-anim($jupR + 4px,io);
-@include vp-anim($jupR + 6px,eur);
-@include vp-anim($jupR + 10px,gan);
-@include vp-anim($jupR + 18px,cal);
-
-.io {
-  $jioOrb: 2s*$baseUnit;
-  -webkit-animation: rot-io $jioOrb infinite linear;
-  -moz-animation: rot-io $jioOrb infinite linear;
-  animation: rot-io $jioOrb infinite linear;
-}
-
-.eur {
-  $jeurOrb: 3.5s*$baseUnit;
-  -webkit-animation: rot-eur $jeurOrb infinite linear;
-  -moz-animation: rot-eur $jeurOrb infinite linear;
-  animation: rot-eur $jeurOrb infinite linear;
-}
-
-.gan {
-  $jganOrb: 7s*$baseUnit;
-  -webkit-animation: rot-gan $jganOrb infinite linear;
-  -moz-animation: rot-gan $jganOrb infinite linear;
-  animation: rot-gan $jganOrb infinite linear;
-}
-
-.cal {
-  $jcalOrb: 16.5s*$baseUnit;
-  -webkit-animation: rot-cal $jcalOrb infinite linear;
-  -moz-animation: rot-cal $jcalOrb infinite linear;
-  animation: rot-cal $jcalOrb infinite linear;
-}
-
-.jup {
-  background-image: repeating-linear-gradient(
-    6deg,
-    #797663 22px,
-    #e1dcde 16px,
-    #c3a992 30px,
-    #e9ece2 30px
-  );
-}
-
-.spot {
-  position:absolute;
-  width:16px;height:12px;
-  border-radius: 8px / 6px;
-  top: $jupR+10;
-  left:50%;
-  background-color:#bc833b;
-  box-shadow: 0px 0px 5px #e1dcde;
-  border:solid 1px #e1dcde;
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-  z-index:300;
-  .nep & {
-    background-color:darken(#343ec5, 10%);
-    border: 0;
-    box-shadow: none;
-    top: 50%;
-    left:45%;
-    width: 10px;
-    height: 6px;
-    margin: -2px;
-    border-radius: 5px / 3px;
-    border-left:solid 1px #7ed6fe;
+  to{
+    transform: rotateX(-20deg) rotateY(360deg);
   }
 }
 
-$satD: 29px * 2;
-div[class$="-ring"] {
-  border-radius: 50%;
-  position:absolute;
-  top: 50%;
-  left:50%;
-  opacity: 0.7;
-  $tilt: 45deg;
-  -webkit-transform: rotatex($tilt);
-  -moz-transform: rotatex($tilt);
-  transform: rotatex($tilt);
+
+
+/*
+#
+# Begin details
+#
+*/
+.tardis .side{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 360px;
+  background-color: #3f577d;
+  
+  box-shadow: inset 1px 0 0 #313d49, inset -1px 0 0 #313d49, inset 0 1px 0 #313d49, inset 0 -1px 0 #313d49;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  z-index: 1;
 }
 
-.a-ring {
-  $ringD: $satD + 61;
-  $ringW: 5px;
-  border:solid $ringW #96866f;
-  width: $ringD;
-  height: $ringD;
-  margin: -($ringD / 2) - $ringW;
-}
-.b-ring {
-  $ringD: $satD + 46;
-  $ringW: 10px;
-  border:solid $ringW #554c3c;
-  width: $ringD;
-  height: $ringD;
-  margin: -($ringD / 2) - $ringW;
+.side:nth-of-type(1){
+  transform : translateZ(100px);
+  -webkit-transform : translateZ(100px);
 }
 
-.c-ring {
-  $ringD: $satD + 37;
-  $ringW: 9px;
-  border:solid $ringW #574f4a;
-  width: $ringD;
-  height: $ringD;
-  margin: -($ringD / 2) - $ringW;
+.side:nth-of-type(2){
+  transform : rotateY(90deg) translateZ(100px);
+  -webkit-transform : rotateY(90deg) translateZ(100px);
 }
 
-.f-ring {
-  $ringD: $satD + 75;
-  $ringW: 2px;
-  border:solid $ringW #908e8d;
-  width: $ringD;
-  height: $ringD;
-  margin: -($ringD / 2) - $ringW;
+.side:nth-of-type(3){
+  transform : rotateY(180deg) translateZ(100px);
+  -webkit-transform : rotateY(180deg) translateZ(100px);
 }
 
-$uraD: 13px * 2;
-.e-ring {
-  $ringD: $uraD + 50;
-  $ringW: 7px;
-  border:solid $ringW #908e8d;
-  width: $ringD;
-  height: $ringD;
-  margin: -($ringD / 2) - $ringW;
-  $tilt: 0deg;
-  $axis: 89deg;
-  -webkit-transform: rotatex($tilt) rotatey($axis) !important;
-  -moz-transform: rotatex($tilt) rotatey($axis) !important;
-  transform: rotatex($tilt) rotatey($axis) !important;
+.side:nth-of-type(4){
+  transform : rotateY(-90deg) translateZ(100px);
+  -webkit-transform : rotateY(-90deg) translateZ(100px);
 }
 
-.plu, .plu-path {
-  top: $middle + 287.4px;
+.tardis .roof{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #3f577d;
+  
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  
+  transform : rotateX(-90deg) translateZ(-100px);
+  -webkit-transform : rotateX(-90deg) translateZ(-100px);
+  z-index: 2;
+}
+
+
+/* The top roof box */
+.roof-top{
+  position: absolute;
+  
+  left: 30px;
+  width: 140px;
+  height: 140px;
+  z-index: 2; 
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.top-lid{
+  width: 140px;
+  height: 140px;
+  background-color: #355683;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform : rotateX(-90deg) translateZ(-89px);
+  -webkit-transform : rotateX(-90deg) translateZ(-89px);
+}
+
+.roof-panel{
+  position: absolute;
+  width: 140px;
+  height: 20px;
+  background-color: #445d84;
+  box-shadow: inset 1px 0 0 #313d49, inset -1px 0 0 #313d49, inset 0 1px 0 #313d49, inset 0 -1px 0 #313d49;
+  top: -20px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.roof-panel.a{
+  transform: rotateY(0deg) translateZ(70px);
+  -webkit-transform: rotateY(0deg) translateZ(70px);
+}
+
+.roof-panel.b{
+ transform: rotateY(90deg) translateZ(70px);
+ -webkit-transform: rotateY(90deg) translateZ(70px);
+}
+
+.roof-panel.c{
+  transform: rotateY(180deg) translateZ(70px);
+  -webkit-transform: rotateY(180deg) translateZ(70px);
+}
+
+.roof-panel.d{
+  transform: rotateY(-90deg) translateZ(70px);
+  -webkit-transform: rotateY(-90deg) translateZ(70px);
+}
+
+/* Light */
+.light{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -60px;
+  left: 85px;
+  z-index: 3;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.light-lid{
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform : rotateX(-90deg) translateZ(-14px);
+  -webkit-transform : rotateX(-90deg) translateZ(-14px);
+}
+
+.light .light-panel{
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.light .light-panel .bottom{
+  width: 30px;
+  height: 12px;
+  position: absolute;
+  bottom: 0px;
+  background-color: #355683;
+  box-shadow: inset 1px 0 0 #313d49, inset -1px 0 0 #313d49, inset 0 1px 0 #313d49, inset 0 -1px 0 #313d49;
+}
+
+.light .light-panel .top{
+  width: 30px;
+  height: 28px;
+  position: absolute;
+  top: 0px;
+  background-color: #eee;
+  box-shadow: inset 1px 0 0 #fff, inset -1px 0 0 #fff, inset 0 1px 0 #fff, inset 0 -1px 0 #fff;
+}
+
+.light-panel.a{
+  transform: rotateY(0deg) translateZ(15px);
+  -webkit-transform: rotateY(0deg) translateZ(15px);
+}
+.light-panel.b{
+  transform: rotateY(90deg) translateZ(15px);
+  -webkit-transform: rotateY(90deg) translateZ(15px);
+}
+.light-panel.c{
+  transform: rotateY(180deg) translateZ(15px);
+  -webkit-transform: rotateY(180deg) translateZ(15px);
+}
+.light-panel.d{
+  transform: rotateY(-90deg) translateZ(15px);
+  -webkit-transform: rotateY(-90deg) translateZ(15px);
+}
+
+
+/* Floor */
+.tardis .floor{
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  left: -10px;
+  top: 360px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.floor-lid{
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background-color: #355683;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: rotateX(90deg) translateZ(109px);;
+  -webkit-transform: rotateX(90deg) translateZ(109px);;
+}
+
+.floor-panel{
+  position: absolute;
+  width: 220px;
+  height: 10px;
+  background-color: #3f577d;
+  box-shadow: inset 1px 0 0 #313d49, inset -1px 0 0 #313d49, inset 0 1px 0 #313d49, inset 0 -1px 0 #313d49;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.floor-panel.a{
+  transform: rotateY(0deg) translateZ(110px);
+  -webkit-transform: rotateY(0deg) translateZ(110px);
+}
+
+.floor-panel.b{
+ transform: rotateY(90deg) translateZ(110px);
+ -webkit-transform: rotateY(90deg) translateZ(110px);
+}
+
+.floor-panel.c{
+  transform: rotateY(180deg) translateZ(110px);
+  -webkit-transform: rotateY(180deg) translateZ(110px);
+}
+
+.floor-panel.d{
+  transform: rotateY(-90deg) translateZ(110px);
+  -webkit-transform: rotateY(-90deg) translateZ(110px);
+}
+
+
+
+
+
+
+
+/*
+#
+# Top sign
+#
+*/
+.side .top-sign{
+  width: 180px;
+  height: 28px;
+  background-color: #445d84; 
+  border: solid 1px #54749f;
+  box-shadow: 0px 2px 4px rgba(0,0,0,.4);
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  z-index: 10;
+}
+
+.top-sign .text{
+  background-color: #28394d;
+  border: solid 1px #54749f;
+  border-radius: 2px;
+  width: 100px;
+  margin: 3px auto;
+  height: 20px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0px 5px;
+  box-shadow: inset 0px 0px 3px rgba(0,0,0,.4);
+  position: relative;
+
+  text-shadow: 0px 0px 4px rgba(255,255,255, .6);
+}
+
+.text .tiny{
+  font-size: 4px;
+  line-height: 6px;
+  text-align: center;
+  width: 20px;
+  position: absolute;
+  right: 35px;
+  top: 4px;
+}
+
+/*
+#
+# Door frame
+#
+*/
+.side .door-frame{
+  position: absolute;
+  width: 160px;
+  left: 20px;
+  top: 35px;
+  bottom: 0px;
+
+  background-color: #445d84; 
+  
+  box-shadow:inset 0px 2px 8px rgba(0,0,0,.5);
+
+  z-index: 5;
+}
+
+
+.door-frame .door{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 77px;
+
+  box-shadow:inset 0px 0px 3px rgba(0,0,0,.7);
+}
+
+.door.door-left{
+  left: 0px;
+}
+
+.door.door-right{
+  right: 0px;
+}
+
+/* Insets */
+.door .door-inset{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+
+  width: 55px;
+  height: 65px;
+  box-shadow:inset 0px .5px 5px rgba(0,0,0,.5);
+}
+
+.door-inset:nth-of-type(2){
+  bottom: 85px;
+}
+
+.door-inset:nth-of-type(3){
+  bottom: 160px;
+}
+
+/* Sign */
+.door .sign{
+  position: absolute;
+  left: 15px;
+  bottom: 165px;
+  width: 45px;
+  height: 55px;
+  background-color: #d5e4f6;
+  box-shadow: inset 1px 0 0 #313d49, inset -1px 0 0 #313d49, inset 0 1px 0 #313d49, inset 0 -1px 0 #313d49;
+}
+
+/* Window */
+.door .window{
+  position: absolute;
+  left: 10px;
+  bottom: 235px;
+
+  width: 55px;
+  height: 65px;
+  background-color: #28475d;
+}
+
+.window .pane{
+  width: 14px;
+  height: 28px;
+  background-color: #dfe7fc;
+  float: left;
+  margin: 2px;
+  box-shadow: inset 0px 0px 10px #fff;
+}
+
+.pane.a{
+  margin-left: 3px;
+  margin-right: 1px;
+}
+
+.pane.d{
+  margin-left: 3px;
+  margin-right: 1px;
 }
