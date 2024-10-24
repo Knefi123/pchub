@@ -11,3 +11,357 @@
       </main>
 </body>
 </html>
+
+<html lang="en">
+
+ <head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device- width, initial-scale=1.0">
+
+ <link href="https://use.fontawesome.com/ releases/v5.0.13/css/all.css" rel="stylesheet">
+
+
+
+<title>Sidebar Menu</title>
+
+ </head>
+
+
+
+ <body>
+
+ <div class="container">
+
+
+
+<div id="sidebar" class="container-
+
+sidebar">
+
+<ul class="menu-group">
+
+<li onclick="changeActive(0)"
+
+class="active"><a href="#"><i class="fas fa- home"></i>Home</a></li>
+
+ <li onclick="changeActive(1)"><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+
+<li onclick="changeActive(2)"><a
+
+href="#"><i class="fas fa-calendar-alt"></ i>Events</a></li>
+
+ <li onclick="changeActive(3)"><a href="#"><i class="fas fa-sliders-h"></ i>Services</a></li>
+
+
+
+<li onclick="changeActive(4)"><a
+
+href="#"><i class="far fa-envelope"></ i>Contact</a></li>
+
+</ul>
+
+<ul class="menu-theme">
+
+<li><i id="dark-mode" class="fas fa-
+
+moon"></i></li>
+
+
+<li><i id="dark-mode" class="fas fa-
+
+moon"></i></li>
+
+
+
+<li><i id="ligth-mode" class="fas fa-
+
+sun"></i></li>
+
+
+
+</ul>
+
+
+
+
+
+<div class="time-wrapper">
+
+
+
+<span class="time-show" id="time"></span>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+< <i id="btn-close" class="fa fa-
+
+div id="btns-group" class="menu-btn">times"></i>
+
+
+
+<i id="btn-open" class="fas fa-bars"></i>
+
+
+
+</div>
+
+ </div>
+
+
+
+<script>
+
+
+
+const sidebar =
+
+document.getElementById("sidebar");
+
+
+
+const btnClose =
+
+document.getElementById("btn-close");
+
+
+
+const btnOpen =
+
+document.getElementById("btn-open"); const btnLigthMode =
+
+
+
+document.getElementById("ligth-mode");
+
+
+
+const btnDarkMode =
+
+document.getElementById("dark-mode");
+
+
+
+const elemSidebar =
+
+document.getElementById("sidebar");
+
+
+
+const listSidebar =
+
+document.getElementsByTagName("a");
+
+
+
+const elemBody =
+
+document.getElementsByTagName("body")[0];
+
+
+
+const timer =
+
+document.getElementById("time");
+
+
+const sidebaropen = () => {
+
+}; sidebar.style.display = "block"; btnClose.style.display = "block"; btn0pen.style.display = "none";
+
+const sidebarClose = () => {
+
+
+
+
+
+
+
+sidebar.style.display = "none"; btnClose.style.display = "none"; btn0pen.style.display = "block"; };
+
+
+
+
+
+
+
+
+
+
+
+"#e1e9ee";
+i++) {
+
+
+
+const enableLigthMode = () => {
+
+elemBody.style.background = "#f5f5f5";
+
+elemSidebar.style.background =
+
+btnLigthMode.style.color = "#0077b5"; btnDarkMode.style.color = "#fff";
+
+timer.style.color = "#000";
+
+for (let i=0; i < listSidebar.length;
+
+listSidebar[i].style.color = "#000";
+
+
+
+}
+
+};
+
+
+
+
+
+
+
+
+
+"#283e4a";
+
+
+
+
+
+
+
+
+
+
+i++) {
+
+
+
+const enableDarkMode = () => {
+
+elemBody.style.background = "#e1e9ee";
+
+elemSidebar.style.background =
+
+btnDarkMode.style.color = "#0077b5";
+
+btnLigthMode.style.color = "#fff";
+
+timer.style.color = "#fff";
+
+for (let i = 0; i < listSidebar.length;
+
+listSidebar[i].style.color = "#fff";
+
+Костя, [24.10.2024 19:50]
+}
+
+ };
+
+
+
+btnOpen.addEventListener("click", sidebaropen);
+
+btnClose.addEventListener("click", sidebarClose);
+
+btnLigthMode.addEventListener("click", enableLigthMode);
+
+btnDarkMode.addEventListener("click", enableDarkMode);
+
+setInterval(() => {
+
+const time = new Date;
+
+let seconds = time.getSeconds();
+
+let minutes time.getMinutes();
+
+let hours = time.getHours();
+
+let day time.getDay();
+
+switch(day) {
+
+case 0: day = "Sun"; break;
+
+case 1: day = "Mon"; break;
+
+case 2: day = "Tue"; break;
+
+case 3: day = "Wed"; break;
+
+
+
+case 4: day = "Thu"; break;
+
+
+
+case 5: day = "Fri"; break;
+
+
+
+case 6: day = "Sat"; break;
+
+}
+
+
+
+
+
+if (seconds == 0 || seconds < 10)
+
+seconds = 0${seconds}';
+
+
+
+if(minutes == 0 || minutes < 10)
+
+minutes = 0${minutes}';
+
+
+
+const timer =
+
+
+
+
+document.getElementById("time");
+
+timer.innerHTML = '${day), ${hours):$ {minutes):${seconds}`;
+
+Костя, [24.10.2024 19:50]
+document.getElementsByTagName("li");
+
+
+
+for(let i=0; i < list.length; i++) {
+
+
+
+list[i].className = ""; }
+
+
+
+}
+
+list[value].className = "active";
+
+
+
+</script>
+
+</body>
+
+
+
+ </html>
