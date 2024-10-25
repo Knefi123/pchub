@@ -50,9 +50,6 @@ header {
 
 
 
-.sered{
-  
-}
 
 
 
@@ -77,7 +74,11 @@ header {
   text-align: center;
   
 }
-
+.zamov{
+  text-align: center;
+  top: 30%;
+  left:50%;
+}
 
 
 
@@ -109,6 +110,7 @@ body {
   min-height:100vh;
   font-family: 'Open Sans', sans-serif;
   margin:0;
+
   .footer {
       z-index: 1;
       --footer-background:#ED5565;
@@ -116,6 +118,8 @@ body {
       position: relative;
       grid-area: footer;
       min-height:12rem;
+      margin-top:450px;
+
       .bubbles {
           position: absolute;
           top:0;
@@ -124,6 +128,7 @@ body {
           height:1rem;
           background:var(--footer-background);
           filter:url("#blob");
+
           .bubble {
               position: absolute;
               left:var(--position, 50%);
