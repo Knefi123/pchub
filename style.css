@@ -60,7 +60,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0); /* колір тексту */
-  font-size: 24px; /* розмір шрифту */
+  font-size: 40px; /* розмір шрифту */
   text-align: center;
   
 }
@@ -70,14 +70,31 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0); /* колір тексту */
-  font-size: 24px; /* розмір шрифту */
+  font-size: 40px; /* розмір шрифту */
   text-align: center;
   
 }
-.zamov{
-  text-align: center;
-  top: 30%;
-  left:50%;
+
+
+
+
+.big-green-button {
+  background-color: green; /* Колір фону кнопки */
+  color: white; /* Колір тексту кнопки */
+  font-size: 24px; /* Розмір шрифту */
+  padding: 20px 40px; /* Внутрішні відступи для кнопки */
+  border: none; /* Без обрамлення */
+  border-radius: 5px; /* Закруглення кутів */
+  cursor: pointer; /* Змінює курсор на "вказівник" при наведенні */
+  transition: background-color 0.3s; /* Анімація зміни кольору фону */
+  position: absolute; /* Для позиціонування кнопки */
+  top: 50%; /* Центрує по вертикалі */
+  left: 50%; /* Центрує по горизонталі */
+  transform: translate(-50%, -50%); /* Центрує кнопку */
+}
+
+.big-green-button:hover {
+  background-color: darkgreen; /* Темніший зелений колір при наведенні */
 }
 
 
