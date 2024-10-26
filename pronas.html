@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pronas.css">
+    <script src="pronas.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="images/image.png" class="logo">
+       <h1>Pchub.ua</h1>
+       <div class="buttons">
+           <a href="index.html" class="button">Головна</a>
+           <a href="magaz.html" class="button">Магазин</a>
+           <a href="pronas.html" class="button">Про нас</a>
+           <a href="sign.html" class="button">Увійти</a>
+       </div>
+</div>
+</header>
+
+
+
+<main>
+
+</main>
+
+
+
+<footer>
+    <div class="main"></div>
+  <div class="footer">
+      <div class="bubbles">
+          <!-- Цикл для створення 128 бульбашок -->
+          <!-- Використання JavaScript для динамічного стилю -->
+          <script>
+              for (let i = 0; i < 128; i++) {
+                  document.write(`<div class="bubble" style="--size:${2 + Math.random() * 4}rem; --distance:${6 + Math.random() * 4}rem; --position:${-5 + Math.random() * 110}%; --time:${2 + Math.random() * 2}s; --delay:${-1 * (2 + Math.random() * 2)}s;"></div>`);
+              }
+          </script>
+      </div>
+      <div class="content">
+          <div>
+            <div>
+              <b>Соціальні мережі</b>
+              <a href="#">Ютуб</a>
+              <a href="#">Інстаграм</a>
+              <a href="#">Тік ток</a>
+          </div>
+          <div>
+              <b>Спонсори</b>
+              <a href="https://rozetka.com.ua/ua/search/?text=pc">Rozetka</a>
+              <a href="https://prom.ua/ua/Gaming-oc.html">Prom</a>
+          </div>
+          <div>
+              <b>Контакти</b>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">+380971125164</a>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">+380618292658</a>
+          </div>
+          </div>
+          <div>
+              <a class="image" href="https://codepen.io/z-" target="_blank" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg');"></a>
+              <p>©2024 Безпечно</p>
+          </div>
+      </div>
+  </div>
+  <svg style="position:fixed; top:100vh;">
+      <defs>
+          <filter id="blob">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+              <!-- feComposite рядок закоментовано, якщо не потрібен -->
+              <!-- <feComposite in="SourceGraphic" in2="blob" operator="atop"></feComposite> -->
+          </filter>
+      </defs>
+  </svg>
+   </footer>
+</body>
+</html>
