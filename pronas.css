@@ -1,6 +1,4 @@
-*{
-    box-sizing: border-box;
-}
+
 
 
 
@@ -58,6 +56,212 @@ header {
 
 
 
+/* Контейнер для заголовка та абзаца */
+.content-container {
+    background-color: #ED5565; /* Світлий фон */
+    border-radius: 10px; /* Закруглені кути */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тінь для глибини */
+    padding: 20px; /* Внутрішні відступи */
+    max-width: 600px; /* Максимальна ширина контейнера */
+    margin: 30px auto; /* Центрування контейнера на сторінці */
+}
+
+/* Стилі для заголовків h1 */
+.main-title {
+    font-size: 2.5em; /* Збільшити розмір шрифту */
+    color: #000000; /* Темний колір тексту */
+    text-align: center; /* Вирівнювання по центру */
+    margin: 20px 0; /* Відступи зверху і знизу */
+    font-weight: bold; /* Жирний текст */
+    text-transform: uppercase; /* Всі літери великими */
+}
+
+/* Стилі для абзаців */
+.main-paragraph {
+    font-size: 1.2em; /* Розмір шрифту абзаців */
+    color: #000000; /* Світліший колір тексту */
+    line-height: 1.6; /* Висота рядка для кращого читання */
+    margin: 10px 0; /* Відступи зверху і знизу */
+    text-align: justify; /* Вирівнювання тексту по ширині */
+}
+
+
+
+/* Контейнер для оцінки */
+.rating-container {
+    background-color: #ED5565; /* Світліший фон для відмінності */
+    border-radius: 5px; /* Закруглені кути */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тінь для глибини */
+    padding: 15px; /* Внутрішні відступи */
+    max-width: 300px; /* Максимальна ширина контейнера */
+    margin: 20px auto; /* Центрування контейнера на сторінці */
+    text-align: center; /* Вирівнювання тексту по центру */
+}
+
+/* Стилі для тексту оцінки */
+.rating-text {
+    font-size: 1.5em; /* Розмір шрифту для тексту */
+    color: #000000; /* Темний колір тексту */
+    margin: 0; /* Відсутність зовнішніх відступів */
+}
+
+/* Стрілочка вниз */
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Ліва частина стрілки */
+    border-right: 10px solid transparent; /* Права частина стрілки */
+    border-top: 10px solid #000000; /* Колір стрілки */
+    margin: 10px auto 0; /* Відступи для центрування */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* { box-sizing: border-box; }
+
+.container {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.rating {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  height: 150px;
+  position: relative;
+}
+
+.rating-0 {
+  filter: grayscale(100%);
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 76%;
+  transition: .3s;
+}
+
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+
+.rating > input:not(:checked) ~ label:hover,
+.rating > input:not(:checked) ~ label:hover ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+.emoji-wrapper {
+  width: 100%;
+  text-align: center;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.emoji-wrapper:before,
+.emoji-wrapper:after{
+  content: "";
+  height: 15px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.emoji-wrapper:before {
+  top: 0;
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%,rgb(255, 255, 255) 35%,rgba(255,255,255,0) 100%);
+}
+
+.emoji-wrapper:after{
+  bottom: 0;
+  background: linear-gradient(to top, rgb(255, 255, 255) 0%,rgba(255,255,255,1) 35%,rgba(255,255,255,0) 100%);
+}
+
+.emoji {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .3s;
+}
+
+.emoji > svg {
+  margin: 15px 0; 
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+#rating-1:checked ~ .emoji-wrapper > .emoji { transform: translateY(-100px); }
+#rating-2:checked ~ .emoji-wrapper > .emoji { transform: translateY(-200px); }
+#rating-3:checked ~ .emoji-wrapper > .emoji { transform: translateY(-300px); }
+#rating-4:checked ~ .emoji-wrapper > .emoji { transform: translateY(-400px); }
+#rating-5:checked ~ .emoji-wrapper > .emoji { transform: translateY(-500px); }
+
+.feedback {
+  max-width: 360px;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,7 +292,7 @@ body {
         position: relative;
         grid-area: footer;
         min-height:12rem;
-        margin-top:450px;
+        margin-top:1200px;
   
         .bubbles {
             position: absolute;
@@ -168,4 +372,5 @@ body {
         bottom:var(--distance, 10rem);
     }
   }
+  
   
