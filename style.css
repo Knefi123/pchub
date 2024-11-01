@@ -51,51 +51,73 @@ header {
 
 
 
-
-
-
 .overlay-text {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255); /* колір тексту */
-  font-size: 40px; /* розмір шрифту */
+color:white;
+font-size:40px;
+text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.catalog {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 270px;
+  width: 300px;
   text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  font-size: 20px;
+  margin:15px;
+  box-shadow: inset 0px 0px 8px 0px black;
   
 }
-.overlay-text2 {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255); /* колір тексту */
-  font-size: 40px; /* розмір шрифту */
-  text-align: center;
+
+.card img {
+  height: 150px;
+  width: 150px;
   
 }
 
-
-
-
-.big-green-button {
-  background-color: green; /* Колір фону кнопки */
-  color: white; /* Колір тексту кнопки */
-  font-size: 24px; /* Розмір шрифту */
-  padding: 20px 40px; /* Внутрішні відступи для кнопки */
-  border: none; /* Без обрамлення */
-  border-radius: 5px; /* Закруглення кутів */
-  cursor: pointer; /* Змінює курсор на "вказівник" при наведенні */
-  transition: background-color 0.3s; /* Анімація зміни кольору фону */
-  position: absolute; /* Для позиціонування кнопки */
-  top: 50%; /* Центрує по вертикалі */
-  left: 50%; /* Центрує по горизонталі */
-  transform: translate(-50%, -50%); /* Центрує кнопку */
+.price{
+  color: red;
+  text-shadow: 0px 0px 20px orange;
 }
 
-.big-green-button:hover {
-  background-color: darkgreen; /* Темніший зелений колір при наведенні */
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,7 +158,7 @@ body {
       position: relative;
       grid-area: footer;
       min-height:12rem;
-      margin-top:450px;
+      margin-top:1600px;
 
       .bubbles {
           position: absolute;
