@@ -139,7 +139,7 @@ text-align:center;
 
 
 
-button {
+.order-button {
   padding: 10px;
   background-color: #ED5565;
   color: rgb(0, 0, 0);
@@ -148,7 +148,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.order-button:hover {
   background-color: #962e38;
 }
 
