@@ -12,6 +12,7 @@
                 <h1>Pchub.ua</h1>
                 <div class="buttons">
                     <a href="index.html" class="button">Головна</a>
+                    <a href="magaz.html" class="button">Увійти</a>
                     <a href="pronas.html" class="button">Про нас</a>
                     <a href="sign.html" class="button">Увійти</a>
                 </div>
@@ -140,10 +141,17 @@
         </div>
     </div>
 
+    
+    <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.bryuk2fgzaWcsP9dh0YtwwHaH1?w=1000&h=1057&rs=1&pid=ImgDetMain" alt="">
+        <div class="card-text">
+            <p>Ігровий пк</p>
+            <p class="price">37.000 грн</p>
+            <button class="order-button" onclick="openModal()">Замовити</button> <!-- Кнопка для відкриття вікна -->
+        </div>
+    </div>
 
   </section>
-
-
 
   
 </main>
@@ -199,20 +207,38 @@
     </defs>
 </svg>
  </footer>
+
+
+
  <div class="backdrop ">
     <div class="modal">
         <form>
+            <h1>Заповніть інформацію</h1>
             <div class="koll">
                 <p class="choose textmdl">Оберіть кількість:</p>
-                <input type="number" class="number">
+                <input type="number" class="number" min="0" max="100">
             </div>
+
             <div class="adress">
                 <p class="address textmdl">Вкажіть вашу адресу:</p>
                 <input type="text" class="address-field">
+            </div>
+
+            <div class="adress">
+                <p class="address textmdl">Вкажіть поштовий індекс</p>
+                <input type="text" class="address-field">
+            </div>
+
+            <div class="adress">
+                <p class="address textmdl">Вкажіть побажання до замовлення</p>
+                <input type="text" class="address-field wishels">
             </div>
         </form>
         <button class="modal-bth-close order order-button">Замовити</button>
     </div>
  </div>
+
+
+
 </body>
 </html>
