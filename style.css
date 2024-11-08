@@ -199,7 +199,7 @@ body {
       position: relative;
       grid-area: footer;
       min-height:12rem;
-      margin-top:1100px;
+      margin-top:1150px;
 
       .bubbles {
           position: absolute;
