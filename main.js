@@ -1,13 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".order-button");
-  const modal = document.querySelector(".backdrop");
+function openModal() {
+    document.getElementById('backdrop').classList.add('show');
+}
 
-  function toggleModal() {
-    modal.classList.toggle("is-hidden");
-  }
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", toggleModal);
-  });
-
-});
+function closeModal() {
+    document.getElementById('backdrop').classList.remove('show');
+}

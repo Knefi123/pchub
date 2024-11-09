@@ -272,19 +272,114 @@ body {
 
 /* MODAL */
 
+
+
+
+
+
+
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0px;
-  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
 }
+
+
+/* Стилі для модального контейнера */
+.modal {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
+}
+
+/* Заголовок модального вікна */
+.modal h2 {
+  color: #ed5565;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Поля вводу */
+.modal-field {
+  margin-bottom: 15px;
+}
+
+.modal-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Кнопка Замовити */
+.submit-button {
+  background-color: #ed5565;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #c74450;
+}
+
+/* Кнопка Закрити */
+.close-button {
+  background-color: transparent;
+  color: #ed5565;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Анімація при відкритті модального вікна */
+.backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
 
 .is-hidden {
   opacity: 0;
@@ -297,17 +392,6 @@ body {
   display: none;
 }
 
-.modal {
-  font-size: 50;
-  max-width: 880px;
-  width: 80%;
-  height: 90%;
-  max-height: 880px;
-  background-color: rgb(133, 19, 82);
-  border: 7px solid #ED5565;
-  border-radius: 20px;
-  position: absolute;
-}
 
 .order {
   position: absolute;
@@ -366,3 +450,7 @@ form h1{
 .wishels {
   height: 120px;
 }
+
+
+/*нічогоСтрашного шо я украв код і дизайн під свій поміняв?*/
+/*Мені потрібно зробить 4 вкладку якщо да то я незнаю для чого вона там буде*/
