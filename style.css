@@ -274,11 +274,6 @@ body {
 
 
 
-
-
-
-
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -299,8 +294,8 @@ body {
 /* Стилі для модального контейнера */
 .modal {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 40px;
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   width: 90%;
   max-width: 400px;
@@ -335,13 +330,14 @@ body {
   font-size: 14px;
 }
 
+
 /* Кнопка Замовити */
 .submit-button {
   background-color: #ed5565;
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 16px;
   width: 100%;
   cursor: pointer;
@@ -351,7 +347,6 @@ body {
 .submit-button:hover {
   background-color: #c74450;
 }
-
 /* Кнопка Закрити */
 .close-button {
   background-color: transparent;
@@ -371,7 +366,6 @@ body {
   opacity: 1;
   visibility: visible;
 }
-
 
 
 
@@ -450,7 +444,3 @@ form h1{
 .wishels {
   height: 120px;
 }
-
-
-/*нічогоСтрашного шо я украв код і дизайн під свій поміняв?*/
-/*Мені потрібно зробить 4 вкладку якщо да то я незнаю для чого вона там буде*/

@@ -22,16 +22,17 @@
 
 
  <main>
-  <h1 class="overlay-text">Крутий пк по крутим цінам</h1>
-  <section class="catalog">
-    <div class="card">
-        <img src="https://img.overclockers.co.uk/products/OCUK-FS-1G2-OG/hero-8477.jpg" alt="">
+    <h1 class="overlay-text">Крутий пк по крутим цінам</h1>
+    <section class="catalog">
+      <!-- Product Cards -->
+      <div class="card">
+        <img src="https://img.overclockers.co.uk/products/OCUK-FS-1G2-OG/hero-8477.jpg" alt="Ігровий пк">
         <div class="card-text">
-            <p>Ігровий пк</p>
-            <p class="price">54.000 грн</p>
-            <button class="order-button" onclick="openModal()">Замовити</button> <!-- Кнопка для відкриття вікна -->
+          <p>Ігровий пк</p>
+          <p class="price">54.000 грн</p>
+          <button class="order-button" onclick="openModal()">Замовити</button>
         </div>
-    </div>
+      </div>
 
     <div class="card">
         <img src="https://cdn.mwave.com.au/images/400/mwave_s62a_gaming_pc_rtx_2070_edition_ac29140_2.jpg" alt="">
@@ -210,7 +211,7 @@
 
 
 
- <div class="backdrop" id="backdrop" onclick="closeModal()">
+   <div class="backdrop" id="backdrop" onclick="closeModal()">
     <div class="modal" onclick="event.stopPropagation()">
         <form>
             <h2>Заповніть інформацію</h2>
@@ -235,6 +236,7 @@
         </form>
     </div>
 </div>
+
 
 </body>
 </html>
